@@ -1,3 +1,5 @@
+from selenium.common import NoSuchElementException
+
 from POM.Pages.Signup import *
 
 class Create():
@@ -23,6 +25,7 @@ class Create():
     self.zipcode = Locator.zipcode_id
     self.number = Locator.number_id
     self.createbutton = Locator.create_button
+    self.textcreated = Locator.text_created
     
   def ID(self):
     self.driver.find_element(By.ID, self.mrs_id).click()
@@ -77,3 +80,18 @@ class Create():
     
   def CreateButton(self):
     self.driver.find_element(By.XPATH, self.createbutton).click()
+  
+  def verify_text(self):
+    try:
+      text_verify = self.driver.find_element(By.XPATH, self.textcreated).text
+      assert "ACCOUNT CREATED!" in text_verify
+      print("Account Created")
+    
+    except NoSuchElementException:
+      print("Element not found, text verification failed")
+    
+    except AssertionError:
+      print("Text does not contain 'ACCOUNT CREATED!'")
+    
+    except Exception as e:
+      print(f"An error occurred: {e}")

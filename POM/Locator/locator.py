@@ -28,4 +28,4 @@ class Locator():
   zipcode_id = "zipcode"
   number_id = "mobile_number"
   create_button = "//*[@id='form']/div/div/div/div/form/button"
-  
+  text_created = "/html/body/header/div/div/div/div[2]/div/ul/li[10]/a"

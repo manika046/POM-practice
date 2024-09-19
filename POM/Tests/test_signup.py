@@ -22,8 +22,8 @@ class SignupTest(unittest.TestCase):
     signup = SignUpPage(driver)
     
     signup.InitialButton()
-    signup.username("Minie")
-    signup.Email("moni@gmail")
+    signup.username("Mine")
+    signup.Email("monie@gmail")
     signup.Button()
   
     time.sleep(2)
